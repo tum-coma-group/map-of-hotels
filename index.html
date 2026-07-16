@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hotelliste Freistaat Bayern 2025/2026</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+  />
+</head>
+<body>
+
+  <section id="main-app" class="main-app">
+    <header class="app-header">
+      <div class="brand">Hotelliste Freistaat Bayern <span class="brand-sub">2025 / 2026</span></div>
+    </header>
+
+    <div class="content">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <input id="search-input" type="search" placeholder="Hotel, Stadt oder Adresse suchen…" />
+          <div id="hotel-count" class="hotel-count"></div>
+        </div>
+        <ul id="hotel-list" class="hotel-list"></ul>
+      </aside>
+      <div id="map" class="map"></div>
+    </div>
+  </section>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+  <script src="hotels.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
