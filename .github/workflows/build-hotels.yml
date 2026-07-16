@@ -1,0 +1,32 @@
+name: Rebuild hotel data
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "2025_Hotelliste_Freistaat_ByBn_Inland.xlsx"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Build hotels.js
+        run: python scripts/build_hotels.py
+
+      - name: Commit and push if hotels.js changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add hotels.js scripts/geocode_cache.json
+          git diff --cached --quiet || git commit -m "Rebuild hotels.js from updated spreadsheet"
+          git diff --cached --quiet || git push
