@@ -40,13 +40,6 @@ html, body {
   font-size: 1.1rem;
 }
 
-.brand-sub {
-  color: var(--muted);
-  font-weight: 400;
-  font-size: 0.9rem;
-  margin-left: 0.35rem;
-}
-
 .content {
   display: flex;
   flex: 1;
